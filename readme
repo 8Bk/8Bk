@@ -1,0 +1,63 @@
+# Dolphin Chat Interface Tutorial
+
+## Prerequisites
+- Python 3.8 or higher
+- Node.js and npm
+- Downloaded Dolphin model (dolphin-2.8-mistral-7b-v02)
+
+## Step 1: Project Setup
+
+1. Create the Python environment and install dependencies:
+```bash
+mkdir api
+python -m venv venv
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+2. Update the model path:
+   - Open `api/main.py`
+   - Change `model_path = "path/to/your/downloaded/model"` to point to your downloaded model location
+
+## Step 2: Start the Backend Server
+
+1. Activate the Python virtual environment (if not already activated):
+```bash
+source venv/bin/activate  # On Windows: .\venv\Scripts\activate
+```
+
+2. Start the API server:
+```bash
+npm run api
+```
+
+The backend server will start on http://localhost:8000
+
+## Step 3: Start the Frontend
+
+1. In a new terminal, start the development server:
+```bash
+npm run dev
+```
+
+The frontend will be available at http://localhost:5173
+
+## Using the Chat Interface
+
+1. Type your message in the input field
+2. Click the "Send" button or press Enter
+3. Wait for the model's response
+
+## Troubleshooting
+
+If you see "Server not connected":
+1. Check if the backend server is running (`npm run api`)
+2. Verify the model path in `api/main.py`
+3. Make sure you have enough RAM to load the model (at least 16GB recommended)
+
+## Technical Details
+
+- Frontend: React + TypeScript + Vite
+- Backend: FastAPI + PyTorch + Transformers
+- Model: dolphin-2.8-mistral-7b-v02
+- Communication: HTTP POST requests to /chat endpoint
